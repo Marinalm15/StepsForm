@@ -1,10 +1,12 @@
+import { Layout } from "./Layout"
+import "./global.css"
 
 
 function App() {
 
   return (
     <>
-     <h1>Hello Word</h1>
+     <Layout/>
     </>
   )
 }
