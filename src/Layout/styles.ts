@@ -34,3 +34,9 @@ export const SidebarWrapper = styled.div`
 
     position: relative;
 `
+
+export const ContentWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+`

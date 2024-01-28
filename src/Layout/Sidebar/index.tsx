@@ -9,7 +9,7 @@ export function Sidebar() {
                 <NumberCircleOne size={32} />
                 </StepNumber>
                 <StepWrapper>
-                    <FistTitle>Step 2</FistTitle>
+                    <FistTitle>Step 1</FistTitle>
                     <SecondTitle>YOUR INFO</SecondTitle>
                 </StepWrapper>
            </Steps>
