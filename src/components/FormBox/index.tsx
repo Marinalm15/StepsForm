@@ -9,7 +9,7 @@ export function FormBox() {
     let description;
 
     switch (location.pathname) {
-        case '/personal_info':
+        case '/':
             title = 'Personal Info';
             description = 'Please provide your name, email address, and phone number'
             break;
