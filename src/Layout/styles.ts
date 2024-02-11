@@ -38,5 +38,7 @@ export const SidebarWrapper = styled.div`
 export const ContentWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: 1rem 2rem;
+    height: 35rem;
+    width: 30rem;
 `
