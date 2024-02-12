@@ -1,12 +1,16 @@
-import { NumberCircleFour, NumberCircleOne, NumberCircleThree, NumberCircleTwo } from "@phosphor-icons/react";
+import { NumberCircleOne, NumberCircleThree, NumberCircleTwo } from "@phosphor-icons/react";
 import { FistTitle, SecondTitle, SidebarContainer, StepNumber, StepWrapper, Steps } from "./styles";
+import { useLocation } from "react-router-dom";
 
 export function Sidebar() {
+    const { pathname } = useLocation()
+
     return (
         <SidebarContainer>
            <Steps>
                 <StepNumber>
-                <NumberCircleOne size={32} />
+                {pathname != "/" && <NumberCircleOne size={32} /> }
+                {pathname == "/" && <NumberCircleOne size={32} weight="fill" /> }
                 </StepNumber>
                 <StepWrapper>
                     <FistTitle>Step 1</FistTitle>
@@ -16,7 +20,8 @@ export function Sidebar() {
 
            <Steps>
                 <StepNumber>
-                    <NumberCircleTwo size={32} />
+                    {pathname != "/select_plan" && <NumberCircleTwo size={32} /> }
+                    {pathname == "/select_plan" && <NumberCircleTwo size={32} weight="fill" /> }
                 </StepNumber>
                 <StepWrapper>
                     <FistTitle>Step 2</FistTitle>
@@ -26,21 +31,12 @@ export function Sidebar() {
 
            <Steps>
            <StepNumber>
-                    <NumberCircleThree size={32} />
+                {pathname != "/pick_add_ons" && <NumberCircleThree size={32} /> }
+                {pathname == "/pick_add_ons" && <NumberCircleThree size={32} weight="fill" /> }
                 </StepNumber>
                 <StepWrapper>
                     <FistTitle>Step 3</FistTitle>
                     <SecondTitle>ADD-ONS</SecondTitle>
-                </StepWrapper>
-           </Steps>
-
-           <Steps>
-           <StepNumber>
-                    <NumberCircleFour size={32} />
-                </StepNumber>
-                <StepWrapper>
-                    <FistTitle>Step 4</FistTitle>
-                    <SecondTitle>SUMMARY</SecondTitle>
                 </StepWrapper>
            </Steps>
 

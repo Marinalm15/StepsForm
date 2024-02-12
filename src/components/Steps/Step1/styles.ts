@@ -32,4 +32,5 @@ export const ButtonNext = styled.button`
     text-decoration: none;
     border: none;
     bottom: 0;
+    cursor: pointer;
 `

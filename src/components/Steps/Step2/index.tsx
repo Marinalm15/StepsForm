@@ -21,26 +21,31 @@ export function Step2() {
         resolver: zodResolver(selectedPlanFormValidationSchema)
     })
 
-    const {control, formState: { errors }, handleSubmit} = planForm
+    const {control, formState: { errors }, handleSubmit, setValue} = planForm
 
-    const handleSelectedPlan = (data: SelectedPlanFormData) => {
+    const handleSelectedPlan = (planName: string) => {
+        setSelected(planName);
+    }
+
+    const handleNextStep = (data: SelectedPlanFormData) => {
         console.log(data);
-        localStorage.setItem('plan', JSON.stringify(data));
-        navigate("/select_plan")
+        localStorage.setItem('selectedPlan', JSON.stringify(data));
+        navigate("/pick_add_ons")
     }
 
     useEffect(() => {
-        const storedPlan = localStorage.getItem('plan');
+        const storedPlan = localStorage.getItem('selectedPlan');
         if (storedPlan) {
             const parsedPlan = JSON.parse(storedPlan);
+            setValue('selectedPlan', parsedPlan.selectedPlan);
             setSelected(parsedPlan.selectedPlan);
         }
-    }, []);
+    }, [setValue]);
 
     return (
         
         <Step2Container>
-        <form onSubmit={handleSubmit(handleSelectedPlan)}>
+        <form onSubmit={handleSubmit(handleNextStep)}>
             <PlanWrapper>
             {plansOptions.map(plan => {
                 return (
@@ -51,7 +56,7 @@ export function Step2() {
                     render={({ field }) => (
                         <PlanBox
                             onClick={() => {
-                                setSelected(plan.name);
+                                handleSelectedPlan(plan.name);
                                 field.onChange(plan.name);
                             }}
                             selected={selected === plan.name}
