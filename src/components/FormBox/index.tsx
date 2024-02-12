@@ -17,6 +17,10 @@ export function FormBox() {
             title = 'Select your plan';
             description = 'You have the option of monthly or yearly billing'
             break;
+        case '/pick_add_ons':
+            title = 'Pick add-ons';
+            description = 'Add-ons help enhance your gaming experience'
+            break;
     }
 
     return (
